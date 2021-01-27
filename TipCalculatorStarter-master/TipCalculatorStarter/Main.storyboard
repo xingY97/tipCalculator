@@ -173,34 +173,37 @@
                                     <constraint firstItem="2Yr-Bz-WTV" firstAttribute="centerY" secondItem="xbn-Dm-XYC" secondAttribute="centerY" id="dbd-23-Pc5"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdv-Cb-WTZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X38-Tt-yu2">
                                 <rect key="frame" x="15" y="583" width="345" height="60"/>
                                 <color key="backgroundColor" name="tcDarkBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="37K-T8-R5v"/>
+                                    <constraint firstAttribute="height" constant="60" id="7IP-se-o5T"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="tcWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="RESET">
+                                    <color key="titleColor" name="tcWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ihR-pC-cF6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="tcOffWhite"/>
                         <constraints>
-                            <constraint firstItem="Qdv-Cb-WTZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="8Dw-xm-YcX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qdv-Cb-WTZ" secondAttribute="bottom" constant="24" id="AVW-PN-8nK"/>
                             <constraint firstItem="uae-ci-apE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AlD-D2-lVu"/>
-                            <constraint firstItem="Qdv-Cb-WTZ" firstAttribute="top" secondItem="xbn-Dm-XYC" secondAttribute="bottom" constant="24" id="Dmz-kX-YZj"/>
                             <constraint firstItem="xbn-Dm-XYC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="FSK-Wd-btN"/>
                             <constraint firstItem="uae-ci-apE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Jv3-vL-Plw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X38-Tt-yu2" secondAttribute="bottom" constant="24" id="ahq-8z-yoE"/>
+                            <constraint firstItem="X38-Tt-yu2" firstAttribute="top" secondItem="xbn-Dm-XYC" secondAttribute="bottom" constant="24" id="cWx-q0-o3x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="99O-92-9ho" secondAttribute="trailing" constant="15" id="duv-0n-9jP"/>
                             <constraint firstItem="99O-92-9ho" firstAttribute="top" secondItem="uae-ci-apE" secondAttribute="bottom" constant="24" id="eCE-7X-emK"/>
+                            <constraint firstItem="X38-Tt-yu2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="fkt-bS-jZ9"/>
                             <constraint firstItem="xbn-Dm-XYC" firstAttribute="top" secondItem="99O-92-9ho" secondAttribute="bottom" constant="24" id="ggo-ef-mQh"/>
                             <constraint firstItem="99O-92-9ho" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="hmC-tX-eqz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X38-Tt-yu2" secondAttribute="trailing" constant="15" id="iui-mg-biS"/>
                             <constraint firstItem="xbn-Dm-XYC" firstAttribute="height" secondItem="99O-92-9ho" secondAttribute="height" id="kH6-BX-jAe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xbn-Dm-XYC" secondAttribute="trailing" constant="15" id="mNi-s2-Tjm"/>
                             <constraint firstItem="uae-ci-apE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sVc-GP-JaT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qdv-Cb-WTZ" secondAttribute="trailing" constant="15" id="wRh-G1-2qE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -209,6 +212,7 @@
                         <outlet property="inputCardView" destination="99O-92-9ho" id="764-H8-HV5"/>
                         <outlet property="inputView" destination="99O-92-9ho" id="qKa-5H-Biv"/>
                         <outlet property="outputCardView" destination="xbn-Dm-XYC" id="MmN-3M-taD"/>
+                        <outlet property="resetButton" destination="X38-Tt-yu2" id="7AR-9w-nZb"/>
                         <outlet property="themeSwitch" destination="nQC-4J-q8E" id="IUn-QQ-sFK"/>
                         <outlet property="tipAmountLabel" destination="QvI-bF-MbY" id="ZRO-23-Ue3"/>
                         <outlet property="tipAmountTitleLabel" destination="Tb4-AM-FEj" id="uw7-7C-jhH"/>
@@ -220,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
+            <point key="canvasLocation" x="-78" y="211"/>
         </scene>
     </scenes>
     <resources>
