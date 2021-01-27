@@ -20,9 +20,32 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uae-ci-apE" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Calculator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbU-bX-HDW">
+                                        <rect key="frame" x="24" y="0.0" width="113.5" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="nyl-Bx-P5o"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="tcCharcoal"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nQC-4J-q8E">
+                                        <rect key="frame" x="302" y="24.5" width="51" height="31"/>
+                                        <color key="onTintColor" name="tcSeafoamGreen"/>
+                                        <connections>
+                                            <action selector="themeToggled:" destination="BYZ-38-t0r" eventType="valueChanged" id="55h-fg-22G"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="HbU-bX-HDW" firstAttribute="leading" secondItem="uae-ci-apE" secondAttribute="leading" constant="24" id="1b2-Oi-Ozh"/>
                                     <constraint firstAttribute="height" constant="80" id="8R8-Rp-UPK"/>
+                                    <constraint firstItem="nQC-4J-q8E" firstAttribute="centerY" secondItem="HbU-bX-HDW" secondAttribute="centerY" id="FNf-K7-fZX"/>
+                                    <constraint firstItem="nQC-4J-q8E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HbU-bX-HDW" secondAttribute="trailing" constant="20" id="NEk-57-KDT"/>
+                                    <constraint firstAttribute="bottom" secondItem="HbU-bX-HDW" secondAttribute="bottom" id="tvu-Y6-8Xl"/>
+                                    <constraint firstAttribute="trailing" secondItem="nQC-4J-q8E" secondAttribute="trailing" constant="24" id="yl1-il-7hC"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99O-92-9ho" userLabel="inputView">
@@ -63,6 +86,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qdv-Cb-WTZ" secondAttribute="trailing" constant="15" id="wRh-G1-2qE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="headerView" destination="uae-ci-apE" id="V0Q-a7-Gdg"/>
+                        <outlet property="themeSwitch" destination="nQC-4J-q8E" id="IUn-QQ-sFK"/>
+                        <outlet property="titleLabel" destination="HbU-bX-HDW" id="v2m-f2-SrK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,11 +98,17 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="tcCharcoal">
+            <color red="0.28999999165534973" green="0.28999999165534973" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="tcDarkBlue">
             <color red="0.16899999976158142" green="0.17599999904632568" blue="0.36100000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tcOffWhite">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcSeafoamGreen">
+            <color red="0.34900000691413879" green="0.85500001907348633" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tcWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
