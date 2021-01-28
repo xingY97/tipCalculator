@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var themeSwitch: UISwitch!
     
     @IBOutlet weak var inputCardView: UIView!
-    @IBOutlet weak var billAmountTextField: UITextField!
+    @IBOutlet weak var billAmountTextField: BillAmountTextField!
     @IBOutlet weak var tipPercentSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var outputCardView: UIView!
@@ -29,7 +29,31 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        billAmountTextField.calculateButtonAction = {
+            // 1
+            guard let billAmountText = self.billAmountTextField.text,
+                let billAmount = Double(billAmountText) else {
+                    return
+            }
+            //round to 2 decimals
+            let roundedBillAmount = (100 * billAmount).rounded() / 100
+            
+            //tip percent
+            let tipPercent = 0.15
+            let tipAmount = roundedBillAmount * tipPercent
+            let roundedTipAmount = (100 * tipAmount).rounded() / 100
+            
+            //add them together
+            let totalAmount = roundedBillAmount + roundedTipAmount
+            
+            print("Bill Amount: \(billAmount)")
+            print("Tip Amount: \(roundedTipAmount)")
+            print("Total Amount: \(totalAmount)")
+            
+        }
     }
+    
     @IBAction func themeToggled(_ sender: UISwitch) {
         if sender.isOn{
             print("switch toggled on")

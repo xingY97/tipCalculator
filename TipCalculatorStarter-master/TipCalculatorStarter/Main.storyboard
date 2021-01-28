@@ -62,7 +62,7 @@
                                                         <color key="textColor" name="tcWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0.00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARm-c0-Psl">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0.00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARm-c0-Psl" customClass="BillAmountTextField" customModule="TipCalculatorStarter" customModuleProvider="target">
                                                         <rect key="frame" x="183" y="0.0" width="118" height="34"/>
                                                         <color key="tintColor" name="tcHotPink"/>
                                                         <constraints>
