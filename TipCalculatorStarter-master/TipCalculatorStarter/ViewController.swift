@@ -43,6 +43,7 @@ class ViewController: UIViewController {
 
         guard let billAmountText = self.billAmountTextField.text,
             let billAmount = Double(billAmountText) else {
+                clear()
                 return
         }
 
@@ -72,6 +73,17 @@ class ViewController: UIViewController {
         self.totalAmountLabel.text = String(format: "%.2f", totalAmount)
     }
     
+    //reset button
+    func clear(){
+        billAmountTextField.text = nil
+        tipAmountLabel.text = "$0.00"
+        totalAmountLabel.text = "$0.00"
+        
+        tipPercentSegmentedControl.selectedSegmentIndex = 0
+        
+        
+    }
+    
     @IBAction func themeToggled(_ sender: UISwitch) {
         if sender.isOn{
             print("switch toggled on")
@@ -85,7 +97,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func resetButtonTapped(_ sender: UIButton) {
-        print("reset button tapped")
+        self.clear()
     }
 }
 
