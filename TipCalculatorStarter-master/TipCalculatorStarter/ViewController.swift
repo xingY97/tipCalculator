@@ -10,6 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //MARK: _ Properties
+    
+    var isDefaultStatusBar = true
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return isDefaultStatusBar ? .default : .lightContent
+    }
+
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var themeSwitch: UISwitch!
@@ -25,12 +33,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalAmountLabel: UILabel!
     
     @IBOutlet weak var resetButton: UIButton!
+
     // MARK: - View Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
+        setTheme(isDark: false)
         
         billAmountTextField.calculateButtonAction = {
             self.calculate()
@@ -104,7 +113,37 @@ class ViewController: UIViewController {
         resetButton.layer.masksToBounds = true
     }
     
+    func setTheme(isDark: Bool) {
+        let theme = isDark ? ColorTheme.dark : ColorTheme.light
+
+        view.backgroundColor = theme.viewControllerBackgroundColor
+
+        headerView.backgroundColor = theme.primaryColor
+        titleLabel.textColor = theme.primaryTextColor
+
+        inputCardView.backgroundColor = theme.secondaryColor
+
+        billAmountTextField.tintColor = theme.accentColor
+        tipPercentSegmentedControl.tintColor = theme.accentColor
+
+        outputCardView.backgroundColor = theme.primaryColor
+        outputCardView.layer.borderColor = theme.accentColor.cgColor
+
+        tipAmountTitleLabel.textColor = theme.primaryTextColor
+        totalAmountTitleLabel.textColor = theme.primaryTextColor
+
+        tipAmountLabel.textColor = theme.outputTextColor
+        totalAmountLabel.textColor = theme.outputTextColor
+
+        resetButton.backgroundColor = theme.secondaryColor
+        
+        //make sure status bar is updated when our theme is toggled
+        isDefaultStatusBar = theme.isDefaultStatusBar
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
     @IBAction func themeToggled(_ sender: UISwitch) {
+        setTheme(isDark: sender.isOn)
     }
     
     @IBAction func tipPercentChanged(_ sender: UISegmentedControl) {
