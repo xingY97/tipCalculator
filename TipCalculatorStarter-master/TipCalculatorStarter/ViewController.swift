@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
+        
         billAmountTextField.calculateButtonAction = {
             self.calculate()
         }
@@ -78,18 +80,31 @@ class ViewController: UIViewController {
         billAmountTextField.text = nil
         tipAmountLabel.text = "$0.00"
         totalAmountLabel.text = "$0.00"
-        
         tipPercentSegmentedControl.selectedSegmentIndex = 0
-        
         
     }
     
+    func setupViews() {
+        headerView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        headerView.layer.shadowOpacity = 0.05
+        headerView.layer.shadowColor = UIColor.black.cgColor
+        headerView.layer.shadowRadius = 35
+        
+        inputCardView.layer.cornerRadius = 8
+        inputCardView.layer.masksToBounds = true
+        
+        outputCardView.layer.cornerRadius = 8
+        outputCardView.layer.masksToBounds = true
+        
+        //Set output card border
+        outputCardView.layer.borderWidth = 1
+        outputCardView.layer.borderColor = UIColor.tcHotPink.cgColor
+        
+        resetButton.layer.cornerRadius = 10
+        resetButton.layer.masksToBounds = true
+    }
+    
     @IBAction func themeToggled(_ sender: UISwitch) {
-        if sender.isOn{
-            print("switch toggled on")
-        } else {
-            print("switch toggled off")
-        }
     }
     
     @IBAction func tipPercentChanged(_ sender: UISegmentedControl) {
